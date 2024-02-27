@@ -1,17 +1,32 @@
 package user.authentication.user_authentication.model;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 
 @Document
 public class User {
     @Id
     private String id;
+    @NotBlank(message = "First name is mandatory")
+    @Size(min = 2, message = "First name must be at least 2 characters long")
     private String firstName;
+
+    @NotBlank(message = "Last name is mandatory")
+    @Size(min = 2, message = "Last name must be at least 2 characters long")
     private String lastName;
+
+    @NotBlank(message = "Email is mandatory")
+    @Email(message = "Email should be valid")
     @Indexed(unique = true)
     private String email;
+
+    @NotBlank(message = "Password is mandatory")
+    @Size(min = 8, message = "Password must be at least 8 characters long")
     private String password;
 
     public User() {
