@@ -39,7 +39,6 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ResponseBody
     public String handleDataAccessResourceFailureException(DataAccessResourceFailureException ex) {
-        // You can log the exception here if needed
         return "Database is unavailable. Please try again later.";
     }
 }

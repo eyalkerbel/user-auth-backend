@@ -31,7 +31,7 @@ public class UserService {
             user.setPassword(encryptedPassword);
             return userRepository.save(user);
         } catch (DataAccessException ex) {
-            logger.error("Attempt to delete user failed", ex);
+            logger.error("Attempt to Create user failed", ex);
             throw ex;
         }
     }
